@@ -1,0 +1,19 @@
+@keyframes shift {
+    0% {
+      text-shadow: 2px 0px 0px #00f, 4px 0px 0px #00f, 6px 0px 0px #00f;
+    }
+    50% {
+      text-shadow: 4px 0px 0px #00f, 8px 0px 0px #00f, 12px 0px 0px #00f;
+    }
+    100% {
+      text-shadow: 2px 0px 0px #00f, 4px 0px 0px #00f, 6px 0px 0px #00f;
+    }
+  }
+  
+  .title-animation {
+    animation: shift 1.5s ease-in-out infinite;
+    text-transform: uppercase;
+    color: #fff;
+    position: relative;
+  }
+  
