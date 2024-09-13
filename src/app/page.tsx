@@ -8,7 +8,7 @@ import FooterWithHiddenStartButton from '@/components/FooterWithHiddenStartButto
 import CountdownTimer from '@/components/CountdownTimer';
 import HiddenCloseButton from '@/components/HiddenCloseButton';
 
-import '@/style/BestUI.css';
+
 
 export default function BestUI() {
   const [captchaSolved, setCaptchaSolved] = useState(false);
