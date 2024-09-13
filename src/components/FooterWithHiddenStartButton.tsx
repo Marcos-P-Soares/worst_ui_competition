@@ -10,7 +10,7 @@ const FOOTER_TEXT = [
   "direitos",
   "reservados",
   "para",
-  "prossegui",
+  "prosseguir",
   "aqui."
 ];
 

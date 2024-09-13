@@ -1,40 +1,36 @@
-# Worst UI Competition
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Welcome to the **Worst UI Competition**! The challenge here is to design the most atrocious, confusing, and laughably bad user interface for a web application. While the theme is open-ended, we encourage you to take on a specific challenge: **a scoring system for judges at the Olympic Games**.
+## Getting Started
 
-## Objective
+First, run the development server:
 
-Your task is to create a scoring system that’s so poorly designed it would leave even the most experienced Olympic judges scratching their heads. We’re looking for a UI that defies all user experience best practices—whether it’s impossible to navigate, overloaded with irrelevant information, or just plain absurd. The more frustrating, the better!
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Creativity and Technical Execution
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-We want to see just how creative you can get while still demonstrating your technical skills. There are no limits on the technology you can use, but frameworks like React or Vue might give you the edge you need to execute your hilariously bad ideas.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Styling
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Remember, while the UI should be functionally terrible, it doesn’t have to be ugly. A beautifully styled but utterly incomprehensible interface could be just as effective. We recommend using a styling framework like Tailwind CSS to add that extra layer of polish to your disastrously bad design.
+## Learn More
 
-## Submission Guidelines
+To learn more about Next.js, take a look at the following resources:
 
-To submit your entry, please fork the provided repository and make your changes in your fork. Ensure that your forked repository’s README.md includes detailed instructions on how to execute and run your project. This will help us to easily test and experience your horrendous UI.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- [GitHub Forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Deploy on Vercel
 
-## Resources
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Here are some resources to help you get started:
-
-- [React Documentation](https://react.dev/)
-- [Vue.js Documentation](https://vuejs.org/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/)
-
-## Examples
-
-For some inspiration, check out the following video on YouTube that showcases examples of hilariously bad UI designs:
-
-[Watch on YouTube](https://www.youtube.com/watch?v=dAAj1_lfvZA)
-
-Feel free to draw ideas from these examples, but remember, the goal is to create something uniquely terrible and your own!
-
-### Get ready to create a scoring system that would make the Olympic Games unforgettable—for all the wrong reasons!
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

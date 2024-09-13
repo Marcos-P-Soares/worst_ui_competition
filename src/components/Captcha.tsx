@@ -71,7 +71,10 @@ export default function Captcha({ onSolve }: CaptchaProps) {
       {/* Campo de input com texto em chinês sobreposto */}
       <div className="relative w-full mt-2">
         {/* Texto em chinês sobreposto */}
-        <p className="absolute top-0 left-0 w-full h-full text-white pointer-events-none font-mono bg-transparent">
+        <p 
+          className="absolute top-0 left-0 w-full h-full text-white pointer-events-none font-mono bg-transparent"
+          style={{ lineHeight: '2.5rem', height: '2.5rem' }} // Ajuste de altura e espaçamento
+        >
           {displayValue} {/* Mostra os caracteres chineses sobre o input */}
         </p>
         
@@ -82,9 +85,9 @@ export default function Captcha({ onSolve }: CaptchaProps) {
           value={inputValue} // Valor real que será submetido
           onChange={handleInputChange}
           required
-          className="border-2 border-gray-500 p-2 bg-transparent text-transparent caret-white w-full" // Texto invisível
+          className="border-2 border-gray-500 p-2 bg-transparent text-transparent caret-white w-full"
           placeholder="Digite aqui"
-          style={{ position: 'relative', zIndex: 1 }}
+          style={{ position: 'relative', zIndex: 1, lineHeight: '2.5rem', height: '2.5rem' }} // Alinhando com o texto sobreposto
         />
       </div>
 
