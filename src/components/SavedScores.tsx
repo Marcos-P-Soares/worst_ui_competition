@@ -8,7 +8,7 @@ interface SavedScoresProps {
         <h2 className="text-2xl font-bold text-white">Pontuações Salvas:</h2>
         <ul className="list-disc list-inside">
           {savedScores.length === 0 ? (
-            <li className="text-yellow-300">Nenhuma pontuação salva ainda.</li>
+            <li>Nenhuma pontuação salva ainda.</li>
           ) : (
             savedScores.map((entry, index) => (
               <li key={index} className="text-yellow-300">

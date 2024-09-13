@@ -8,7 +8,7 @@ interface ScoreDisplayProps {
         <h2 className="text-2xl font-bold text-white">Pontuações dadas:</h2>
         <ul>
           {Object.entries(scores).map(([sport, score]) => (
-            <li key={sport} className="text-yellow-300">
+            <li key={sport}>
               {sport}: {score}
             </li>
           ))}

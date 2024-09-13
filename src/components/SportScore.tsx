@@ -20,7 +20,7 @@ export default function SportScore({ sport, onScoreSubmit }: SportScoreProps) {
 
   return (
     <form onSubmit={handleScoreSubmit} className="flex flex-col items-center mt-4">
-      <label htmlFor={`${sport}-score`} className="text-yellow-300 text-xl mb-2">
+      <label htmlFor={`${sport}-score`} className="text-xl mb-2">
         Pontue {sport}:
       </label>
       <select

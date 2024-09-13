@@ -11,12 +11,14 @@ export default function JudgeScorePage() {
   const [scores, setScores] = useState<{ [sport: string]: string }>({});
   const [finalMessageVisible, setFinalMessageVisible] = useState(false);
   const [savedScores, setSavedScores] = useState<{ [sport: string]: string }[]>([]); // Lista de pontuações salvas
-  const [judgeName, setJudgeName] = useState<string | null>(null); // Armazenar o nome do juiz
+  const [judgeName, setJudgeName] = useState<string | null>(null); // Estado para o nome do juiz
 
-  // Recupera o nome do juiz do localStorage ao carregar a página
   useEffect(() => {
-    const storedName = localStorage.getItem('judgeName');
-    setJudgeName(storedName); // Atualiza o estado com o nome do juiz
+    // Buscar o nome do juiz do localStorage no lado do cliente
+    if (typeof window !== "undefined") {
+      const storedJudgeName = localStorage.getItem('judgeName');
+      setJudgeName(storedJudgeName);
+    }
   }, []);
 
   const handleScoreSubmit = (sport: string, score: string) => {
@@ -33,20 +35,21 @@ export default function JudgeScorePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-black text-white">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-white text-black">
       <h1 className="text-5xl font-bold mb-10">Sistema de Pontuação Olímpico</h1>
-
-      {/* Mensagem de boas-vindas com o nome do juiz */}
-      {judgeName && (
-        <h2 className="text-3xl text-yellow-300 mb-5">Bem-vindo, {judgeName}!</h2>
-      )}
-
-      {/* Componentes de pontuação para cada esporte */}
-      <SportScore sport="Atletismo" onScoreSubmit={handleScoreSubmit} />
-      <SportScore sport="Natação" onScoreSubmit={handleScoreSubmit} />
-      <SportScore sport="Ginástica" onScoreSubmit={handleScoreSubmit} />
-      <SportScore sport="Vôlei" onScoreSubmit={handleScoreSubmit} />
-      <SportScore sport="Judô" onScoreSubmit={handleScoreSubmit} />
+      
+      {/* Exibir o nome do juiz */}
+      {judgeName && <h2 className="text-2xl mb-5 text-gray-700">Bem-vindo, {judgeName}!</h2>}
+      
+      {/* Grid Layout melhorado */}
+      <div className="grid grid-cols-2 gap-10 max-w-4xl mx-auto">
+        {/* Componentes de pontuação para cada esporte */}
+        <SportScore sport="Atletismo" onScoreSubmit={handleScoreSubmit} />
+        <SportScore sport="Natação" onScoreSubmit={handleScoreSubmit} />
+        <SportScore sport="Ginástica" onScoreSubmit={handleScoreSubmit} />
+        <SportScore sport="Vôlei" onScoreSubmit={handleScoreSubmit} />
+        <SportScore sport="Judô" onScoreSubmit={handleScoreSubmit} />
+      </div>
 
       {/* Exibe as pontuações dadas */}
       <ScoreDisplay scores={scores} />

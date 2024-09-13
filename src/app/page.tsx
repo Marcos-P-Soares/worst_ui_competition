@@ -6,64 +6,63 @@ import Captcha from '@/components/Captcha';
 import MotivationalMessage from '@/components/MotivationalMessage';
 import FooterWithHiddenStartButton from '@/components/FooterWithHiddenStartButton';
 import HiddenCloseButton from '@/components/HiddenCloseButton';
-import NameInput from '@/components/NameInput'; // Novo componente
+import NameInput from '@/components/NameInput';
+import Image from 'next/image';
 
 export default function BestUI() {
   const [captchaSolved, setCaptchaSolved] = useState(false);
   const [startProgress, setStartProgress] = useState(false);
   const [showMotivationalMessage, setShowMotivationalMessage] = useState(false);
-  const [showNameField, setShowNameField] = useState(false); // Controle para mostrar o campo de nome
+  const [showNameField, setShowNameField] = useState(false);
 
-  // Quando o captcha é resolvido, mostramos a mensagem motivacional
   useEffect(() => {
     if (captchaSolved) {
       setShowMotivationalMessage(true);
       const timer = setTimeout(() => {
         setShowMotivationalMessage(false);
-      }, 5000); // Duração de 5 segundos
-
-      return () => clearTimeout(timer); // Limpar o timeout quando o componente for desmontado
+      }, 5000);
+      return () => clearTimeout(timer);
     }
   }, [captchaSolved]);
 
-  // Função para receber o nome do juiz
   const handleNameSubmit = (name: string) => {
-    localStorage.setItem('judgeName', name); // Salva o nome no localStorage
+    localStorage.setItem('judgeName', name);
     alert(`Nome cadastrado: ${name}`);
-    setShowNameField(false); // Ocultar o campo de nome após o envio
+    setShowNameField(false);
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-black text-white">
-      {/* Título com efeito customizado */}
+    <div className="min-h-screen flex flex-col justify-center items-center bg-background text-foreground">
+      {/* Alteração do título */}
       <h1 className="title-animation text-7xl font-bold mb-10">
-        BEST UI
+        Sistema de Avaliação Olímpica
       </h1>
 
-      {/* Botão Iniciar */}
+      <Image 
+      src="/images/olimpiadas.svg" 
+      width={200} 
+      height={150}
+      alt='Logo da Olimpíada'
+      className="mb-10 w-80 h-auto"
+      />
+
       {!captchaSolved && !startProgress && (
         <FakeStartButton onCaptchaOpen={() => setStartProgress(true)} />
       )}
 
-      {/* Captcha */}
       {startProgress && !captchaSolved && (
         <Captcha onSolve={() => {
           setCaptchaSolved(true);
-          setShowNameField(true); // Exibe o campo de nome após o captcha ser resolvido
+          setShowNameField(true);
         }} />
       )}
 
-      {/* Componente de input para nome */}
       {showNameField && (
         <NameInput onSubmit={handleNameSubmit} />
       )}
 
-      {/* Mensagem motivacional só aparece após o captcha ser resolvido */}
       {showMotivationalMessage && <MotivationalMessage />}
-
-      {/* Footer sempre visível */}
       <FooterWithHiddenStartButton />
-      
       <HiddenCloseButton />
     </div>
   );
