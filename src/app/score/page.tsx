@@ -36,7 +36,7 @@ export default function JudgeScorePage() {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-white text-black">
-      <h1 className="text-5xl font-bold mb-10">Sistema de Pontuação Olímpico</h1>
+      <h1 className="mt-10 text-5xl font-bold mb-10">Sistema de Pontuação Olímpico</h1>
       
       {/* Exibir o nome do juiz */}
       {judgeName && <h2 className="text-2xl mb-5 text-gray-700">Bem-vindo, {judgeName}!</h2>}
