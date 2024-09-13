@@ -1,8 +1,9 @@
 export default function MotivationalMessage() {
   return (
-    <div className="mt-10">
-      <p className="text-4xl font-bold text-yellow-300 animate-bounce">
-        Parabéns! Você está quase no lugar errado! Continue se esforçando e quem sabe não chega a lugar algum.
+    <div className="text-center w-full">
+      <p className="text-3xl font-bold text-yellow-300">
+        A resposta pode estar onde você menos espera. Mas só se você estiver completo.<br />
+        Continue se esforçando, algo está quase acontecendo!
       </p>
     </div>
   );

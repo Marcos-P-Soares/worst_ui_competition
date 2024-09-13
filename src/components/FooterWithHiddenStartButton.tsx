@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation'; // Import necessário para navegação
 import { useEffect, useState } from 'react';
 
 const FOOTER_TEXT = [
@@ -16,6 +17,7 @@ const FOOTER_TEXT = [
 
 export default function FooterWithHiddenStartButton() {
   const [buttonIndex, setButtonIndex] = useState<number>(0);
+  const router = useRouter(); // Hook para redirecionar a página
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,8 +31,20 @@ export default function FooterWithHiddenStartButton() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleButtonClick = () => {
+    const judgeName = localStorage.getItem('judgeName'); // Verifica se o nome foi preenchido
+    
+    if (judgeName) {
+      // Se o nome estiver preenchido, redireciona para a página de score
+      router.push('/score');
+    } else {
+      // Caso contrário, exibe uma mensagem de erro
+      alert('Por favor, insira seu nome antes de prosseguir!');
+    }
+  };
+
   return (
-    <footer className="fixed bottom-0 left-0 w-full bg-gray-800 text-white py-1 text-center">
+    <footer className="fixed bottom-0 left-0 w-full bg-gray-900 text-white text-center py-4">
       <div className="flex justify-center">
         {FOOTER_TEXT.map((word, index) => {
           if (index === FOOTER_TEXT.length - 1) {
@@ -44,10 +58,10 @@ export default function FooterWithHiddenStartButton() {
           return (
             <span key={index} className="mx-1">
               {index === buttonIndex ? (
-                // O botão real parece texto comum
+                
                 <button
-                  onClick={() => alert('Agora você achou o botão certo!')}
-                  className="text-white underline-none" // Sem aparência de link
+                  onClick={handleButtonClick}
+                  className="text-white underline-none"
                   style={{ cursor: 'default', textDecoration: 'none' }}
                 >
                   {word}
